@@ -1,0 +1,85 @@
+extensions:
+ file_storage:
+    # directory: /var/lib/otelcol/file_storage
+    compaction:
+      on_start: true
+
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+        endpoint: 0.0.0.0:4318
+        cors:                          # ← ADD THESE LINES
+          allowed_origins:             # ← ADD THESE LINES
+            - "http://localhost:5173"  # ← ADD THESE LINES
+            - "http://localhost:*"     # ← ADD THESE LINES
+          allowed_headers:             # ← ADD THESE LINES
+            - "*"                      # ← ADD THESE LINES
+          max_age: 7200                # ← ADD THESE LINES
+
+ 
+processors:
+  batch:
+
+
+   # Add attributes processor to format logs for Loki
+  attributes:
+    actions:
+      - key: loki.attribute.labels
+        value: service_name, service_namespace, severityText
+        action: insert
+
+exporters:
+  prometheus:
+    endpoint: "0.0.0.0:9314"
+  otlp:
+    endpoint: "tempo:4317"
+    tls:
+      insecure: true
+    sending_queue:
+      enabled: true
+      queue_size: 2000
+      num_consumers: 4
+      # storage: file_storage
+    retry_on_failure:
+      enabled: true
+      initial_interval: 5s
+      max_interval: 30s
+      max_elapsed_time: 10m
+
+  # ✅ Loki exporter for v0.91.0 (with labels support)
+  loki:
+    endpoint: "http://loki:3100/loki/api/v1/push"
+    sending_queue:
+      enabled: true
+      queue_size: 5000
+      # storage: file_storage
+    retry_on_failure: 
+      enabled: true
+      initial_interval: 5s
+      max_interval: 30s
+      max_elapsed_time: 10m
+    default_labels_enabled:
+      exporter: true
+      job: true
+  debug:
+    verbosity: detailed
+
+
+service:
+  # extensions: [file_storage]
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      exporters: [prometheus]
+
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp]
+
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [loki, debug]

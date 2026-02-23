@@ -1,0 +1,205 @@
+/* ============================================
+   CONNECT SCREEN (Initial Page)
+   ============================================ */
+
+/* Full page background */
+.connect-container {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom right, #dbeafe, #c7d2fe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Card box */
+.connect-card {
+  background: white;
+  border-radius: 16px;
+  padding: 48px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Subtitle */
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+/* Connect Button */
+.connect-btn {
+  background: #2563eb;
+  color: white;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.connect-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 15px rgba(37, 99, 235, 0.4);
+}
+
+/* ============================================
+   OPERATION SELECTION SCREEN
+   ============================================ */
+
+/* Operation page container */
+.operation-container {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #dbeafe, #c7d2fe);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.operation-card {
+  background: white;
+  padding: 40px;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 16px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.op-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 35px;
+  text-align: center;
+  color: #1f2937;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Buttons grid - 2 columns */
+.op-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* Individual Operation Buttons */
+.btn {
+  padding: 18px 20px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Colors */
+.green { 
+  background: #16a34a; 
+}
+.green:hover { 
+  background: #15803d; 
+}
+
+.blue { 
+  background: #2563eb; 
+}
+.blue:hover { 
+  background: #1d4ed8; 
+}
+
+.purple { 
+  background: #9333ea; 
+}
+.purple:hover { 
+  background: #7e22ce; 
+}
+
+.orange { 
+  background: #f97316; 
+}
+.orange:hover { 
+  background: #ea580c; 
+}
+
+.red { 
+  background: #dc2626; 
+}
+.red:hover { 
+  background: #b91c1c; 
+}
+
+/* Disconnect Button */
+.disconnect-btn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 14px;
+  background: #9ca3af;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.disconnect-btn:hover {
+  background: #6b7280;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN (Mobile)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .op-buttons {
+    grid-template-columns: 1fr; /* Stack buttons on mobile */
+  }
+
+  .connect-card,
+  .operation-card {
+    padding: 30px 20px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .op-title {
+    font-size: 24px;
+  }
+
+  .btn {
+    font-size: 15px;
+    padding: 16px;
+  }
+}

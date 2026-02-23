@@ -1,0 +1,18 @@
+{
+	"ulid": "01KJ4PRS5F2C2G69T4T95BD5PZ",
+	"minTime": 1771821306764,
+	"maxTime": 1771826400000,
+	"stats": {
+		"numSamples": 26422,
+		"numFloatSamples": 26422,
+		"numSeries": 62,
+		"numChunks": 211
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01KJ4PRS5F2C2G69T4T95BD5PZ"
+		]
+	},
+	"version": 1
+}

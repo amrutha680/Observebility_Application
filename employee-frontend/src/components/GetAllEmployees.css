@@ -1,0 +1,194 @@
+/* ============================================
+   GET ALL EMPLOYEES PAGE
+   ============================================ */
+
+/* Full page background wrapper */
+.getall-container {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #dbeafe, #c7d2fe);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Inner content card */
+.content-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 1000px;
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #1f2937;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Loading, Error, No Data messages */
+.loading, .error, .no-data {
+  text-align: center;
+  font-size: 18px;
+  padding: 40px;
+  color: #6b7280;
+}
+
+.error {
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Table Container with scroll */
+.table-container {
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Custom scrollbar */
+.table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Employee Table */
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+/* Table Header */
+.employee-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.employee-table th {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #1e40af;
+}
+
+/* Table Body */
+.employee-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+  font-size: 15px;
+}
+
+/* Zebra striping for rows */
+.employee-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* Row hover effect */
+.employee-table tbody tr:hover {
+  background: #f3f4f6;
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* First column (ID) styling */
+.employee-table td:first-child {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* Back Button */
+.back-btn {
+  margin-top: 120px;
+  width: 10%;
+  padding: 14px;
+  background: #6b7280;
+  color: rgb(45, 32, 32);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: block;            /* Make it a block element */
+  margin: 20px auto 0 auto;  /* Top margin 20px, auto left/right to center */
+  text-align: center; 
+}
+
+.back-btn:hover {
+  background: #4b5563;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .content-card {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .employee-table th,
+  .employee-table td {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .table-container {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .employee-table th,
+  .employee-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}

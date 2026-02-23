@@ -1,0 +1,18 @@
+{
+	"ulid": "01KJ4VM78P8QD19ZT78YSP5ZDP",
+	"minTime": 1771826401556,
+	"maxTime": 1771833600000,
+	"stats": {
+		"numSamples": 94550,
+		"numFloatSamples": 94550,
+		"numSeries": 62,
+		"numChunks": 746
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01KJ4VM78P8QD19ZT78YSP5ZDP"
+		]
+	},
+	"version": 1
+}
